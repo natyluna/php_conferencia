@@ -1,0 +1,15 @@
+.user-panel{
+    height: 60px;
+}
+.user-panel>.info{
+    position: relative;
+    left: auto;
+}
+/*color para letras menu admin*/
+.skin-blue .sidebar-menu>li.header{
+    color: white;
+}
+/*oculto el copyright*/
+.login-page .main-footer{
+    display: none ;
+}
