@@ -45,7 +45,46 @@ if(isset($_POST['agregar-admin'])){
    }
    die(json_encode($respuesta));
 }
-if(isset($_POST['login-admin'])){
-    $usuario= $_POST['admin'];
-    $password= $_POST['password'];
-}
+
+   //***********LOGIIIN***** */
+    
+   if(isset($_POST['login-admin'])){
+  
+    $usuarioPost= $_POST['usuario'];
+    $passwordPost= $_POST['password'];
+    try{
+        include_once 'funciones/funciones.php';
+        $stmt= $conn->prepare("SELECT usuario,password,nombre,id_admin FROM admins WHERE usuario=?;");
+    $stmt->bind_param("s", $usuarioPost);
+    //ejecuto el stmt
+    $stmt->execute();
+    $stmt->bind_result($usuario,$password,$nombre,$id_admin);
+    if($stmt->affected_rows){
+        $existe = $stmt->fetch();
+        if($existe){
+           
+            if(password_verify($passwordPost, $password)){
+               
+                $respuesta= array(
+                    'respuesta'=>'exitoso',
+                    'usuario'=> $nombre,
+                );
+                die(json_encode($respuesta));
+            }else{
+                $respuesta= array(
+                    'respuesta'=>'clave incorrecta'
+                    
+                );
+            }
+           
+        }else{
+            $respuesta= array(
+                'respuesta'=>'no existe'
+            );
+        }
+    }
+    }catch(Exception $e){
+        echo "Error: " .$e->getMessage();
+    }
+    die(json_encode($respuesta));
+  }

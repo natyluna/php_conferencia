@@ -31,16 +31,11 @@
         </div>
         <!-- /.col -->
       </div>
+ 
     </form>
-
-    
-
-
   </div>
   <!-- /.login-box-body -->
 </div>
- 
-
   <?php
     include_once 'template/footer.php';
     
