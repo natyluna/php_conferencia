@@ -1,6 +1,6 @@
 <?php
-    include_once 'funciones/sesiones.php';//SIEMPRE PRIMERO // agrego en toda pag q quiera tener segura
-    include_once 'funciones/funciones.php';
+    /* include_once 'funciones/sesiones.php'; *///SIEMPRE PRIMERO // agrego en toda pag q quiera tener segura
+   /*  include_once 'funciones/funciones.php'; */
     include_once 'template/header.php';
     include_once 'template/barra.php';
     include_once 'template/navegacion.php';
@@ -12,32 +12,32 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Blank page
-        <small>it all starts here</small>
+        Panel de Administracion
+        <small>administra tu sitio desde aqui</small>
       </h1>
      
     </section>
 
     <!-- Main content -->
-    <section class="content">
+    <!-- <section class="content"> -->
 
       <!-- Default box -->
-      <div class="box">
+     <!--  <div class="box">
         <div class="box-header with-border">
           <h3 class="box-title">Title</h3>
         </div>
         <div class="box-body">
           Start creating your amazing application!
-        </div>
+        </div> -->
         <!-- /.box-body -->
-        <div class="box-footer">
+       <!--  <div class="box-footer">
           Footer
-        </div>
+        </div> -->
         <!-- /.box-footer-->
-      </div>
+     <!--  </div> -->
       <!-- /.box -->
 
-    </section>
+   <!--  </section> -->
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
