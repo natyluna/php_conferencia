@@ -1,6 +1,6 @@
 <?php
-/* include_once 'funciones/sesiones.php'; */
-include_once 'funciones/funciones.php';
+/* include_once 'funciones/sesiones.php'; */ //SIEMPRE PRIMERO // agrego en toda pag q quiera tener segura
+ include_once 'funciones/funciones.php';
 include_once 'template/header.php';
 include_once 'template/barra.php';
 include_once 'template/navegacion.php';
@@ -13,10 +13,11 @@ include_once 'template/navegacion.php';
     <section class="content-header">
         <h1>
             Crear Administrador
-            <small>Completa el formulario </small>
+            <small>completa el formulario</small>
         </h1>
 
     </section>
+
     <div class="row">
         <div class="col-md-8">
 
@@ -30,8 +31,7 @@ include_once 'template/navegacion.php';
                         <h3 class="box-title">Crear Administrador</h3>
                     </div>
                     <div class="box-body">
-                        <!-- form start -->
-                        <form role="form" name="guardar-registro" id="crear-admin" method="post" action="modelo-admin.php">
+                        <form role="form" name="crear-admin" id="crear-admin" method="post" action="insertar-admin.php">
                             <div class="box-body">
                                 <div class="form-group">
                                     <label for="usuario">Usuario:</label>
@@ -45,35 +45,28 @@ include_once 'template/navegacion.php';
                                     <label for="password">Contraseña:</label>
                                     <input type="password" name="password" class="form-control" id="password" placeholder="Contraseña para iniciar sesion">
                                 </div>
-                                <div class="form-group">
+                               <!--  <div class="form-group">
                                     <label for="password">Repetir Contraseña:</label>
                                     <input type="password" name="repetir_password" class="form-control" id="repetir_password" placeholder="Contraseña para iniciar sesion">
-                                    <span id="resultado_password" class="help-block"></span> 
-                                </div>
-                            
+                                    <span id="resultado_password" class="help-block"></span>
+                                </div> -->
+
                             </div>
                             <!-- /.box-body -->
 
                             <div class="box-footer">
-                                <input type="hidden" name="registro" value="nuevo">
-                                <button type="submit" class="btn btn-primary" id="crear_registro">Aceptar</button>
+                                <input type="hidden" name="agregar-admin" value="1">
+                                <button type="submit" class="btn btn-primary">Aceptar</button>
                             </div>
                         </form>
-                        
                     </div>
-                    <!-- /.box-body -->
-
+                   
                 </div>
-                <!-- /.box -->
-
-            </section>
-            <!-- /.content -->
         </div>
     </div>
-</div>
-<!-- /.content-wrapper -->
+    <!-- /.content-wrapper -->
 
-<?php
-include_once 'template/footer.php';
+    <?php
+    include_once 'template/footer.php';
 
-?>
+    ?>

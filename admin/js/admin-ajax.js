@@ -1,14 +1,15 @@
 
 $(document).ready(function(){
     
-    $('#guardar-registro').on('submit', function(e){
-        e.preventDefault(); //evito q se abra el archivo, solo lo cargo
+    $('#crear-admin').on('submit', function(e){
+        e.preventDefault(); //evito q se abra el archivo del action, solo lo cargo
         
         //para obtener los datos
         var datos = $(this).serializeArray();
         
         //crea el ajax
         $.ajax({
+            //lo leo
             type: $(this).attr('method'),
             //datos a enviar
             data: datos,
@@ -17,7 +18,7 @@ $(document).ready(function(){
             dataType:'json',
             //respuesta
             success: function(data){
-                console.log(data);
+                //console.log(data);
                 var resultado= data;
                 if(resultado.respuesta == 'exito'){
                     swal(
@@ -35,7 +36,28 @@ $(document).ready(function(){
             }
         })
     });
-
+    $('#login-admin').on('submit', function(e){
+        e.preventDefault(); //evito q se abra el archivo del action, solo lo cargo
+        
+        //para obtener los datos
+        var datos = $(this).serializeArray();
+        
+        //crea el ajax
+        $.ajax({
+            //lo leo
+            type: $(this).attr('method'),
+            //datos a enviar
+            data: datos,
+            //a donde enviar
+            url:$(this).attr('action'),
+            dataType:'json',
+           success: function(data){
+               console.log(data);
+           }
+            
+        })
+    });
+/*
     //AGREGO ELIMINAR UN ADMIN 
 $('.borrar_registro').on('click', function (e) {
     e.preventDefault(); // cancelo la ejecucion
@@ -81,6 +103,6 @@ $('.borrar_registro').on('click', function (e) {
         })
     });
 });
-
+*/
 
 });
