@@ -1,5 +1,5 @@
 <?php
-/* include_once 'funciones/sesiones.php'; */ //SIEMPRE PRIMERO // agrego en toda pag q quiera tener segura
+ include_once 'funciones/sesiones.php';  //SIEMPRE PRIMERO // agrego en toda pag q quiera tener segura
  include_once 'funciones/funciones.php';
 include_once 'template/header.php';
 include_once 'template/barra.php';
@@ -31,7 +31,7 @@ include_once 'template/navegacion.php';
                         <h3 class="box-title">Crear Administrador</h3>
                     </div>
                     <div class="box-body">
-                        <form role="form" name="crear-admin" id="crear-admin" method="post" action="insertar-admin.php">
+                        <form role="form" name="crear-admin" id="crear-admin" method="post" action="modelo-admin.php">
                             <div class="box-body">
                                 <div class="form-group">
                                     <label for="usuario">Usuario:</label>

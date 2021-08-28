@@ -9,7 +9,7 @@ $(document).ready(function() {
       'ordering': true,
       'info': true,
       'autoWidth': false,
-      //para traducir
+      //para TRADUCIR
       'language':{
         paginate: {
             next: 'Siguiente',
@@ -18,7 +18,7 @@ $(document).ready(function() {
             first: 'Primero'
         },
         info: "Mostrando _START_ a _END_ de _TOTAL_ resultados",
-        emptyTable: 'No hay registros',
+        emptyTable: 'No hay registros', //CUANDO LA TABLA ESTA VACIA 
         infoEmpty: '0 registros',
         search: 'Buscar'
       }

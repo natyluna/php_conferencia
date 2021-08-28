@@ -1,4 +1,5 @@
 <?php
+
  include_once 'funciones/funciones.php';//conecto a la bd
 //PARA COMPROBAR SI ESTA CONECTADA A LA BASE DE DATOS
 /* if($conn->ping()){
@@ -64,24 +65,26 @@ if(isset($_POST['agregar-admin'])){
         if($existe){
            
             if(password_verify($passwordPost, $password)){
-               
+                session_start();
+                $_SESSION['usuario']= $usuario;
+                $_SESSION['nombre']= $nombre;
                 $respuesta= array(
                     'respuesta'=>'exitoso',
-                    'usuario'=> $nombre,
+                    'usuario'=> $nombre
                 );
                 die(json_encode($respuesta));
             }else{
                 $respuesta= array(
-                    'respuesta'=>'clave incorrecta'
-                    
+                    'respuesta'=>'error' 
                 );
             }
-           
         }else{
             $respuesta= array(
-                'respuesta'=>'no existe'
+                'respuesta'=>'error'
             );
         }
+        $stmt->close();
+        $conn->close();
     }
     }catch(Exception $e){
         echo "Error: " .$e->getMessage();

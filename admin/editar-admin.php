@@ -1,5 +1,5 @@
 <?php
-/* include_once 'funciones/sesiones.php'; */
+include_once 'funciones/sesiones.php';
 include_once 'funciones/funciones.php';
 $id = $_GET['id'];
 //validacion: si no es numerico corta la ejecucion
