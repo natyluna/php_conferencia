@@ -7,12 +7,13 @@
 }else{
     echo "no conectado";
 }  */
+//SE UTILIZA PARA TODOS LOS ARCHIVOS
+$usuario = $_POST['usuario'];
+$nombre = $_POST['nombre'];
+$password= $_POST['password'];
+$id_registro= $_POST['id_registro'];
 
-if(isset($_POST['agregar-admin'])){
-    $usuario = $_POST['usuario'];
-  $nombre = $_POST['nombre'];
-  $password= $_POST['password'];
-
+if($_POST['registro'] == 'nuevo'){
    //creo las opciones
    $opciones= array(
     'cost'=>12
@@ -46,16 +47,49 @@ if(isset($_POST['agregar-admin'])){
    }
    die(json_encode($respuesta));
 }
-
+ 
+//***********EDITAR***** */
+  if($_POST['registro']=='actualizar'){
+   
+    $opciones= array(
+        'cost'=>12
+    );
+    try{
+        
+        $hash_password= password_hash($password, PASSWORD_BCRYPT, $opciones);
+        $stmt= $conn->prepare('UPDATE admins SET usuario=?, nombre=?,password=? WHERE id_admin= ?');
+        $stmt->bind_param("sssi", $usuario,$nombre,$hash_password,$id_registro);
+        $stmt->execute();
+        if($stmt->affected_rows){
+            $respuesta= array(
+                'respuesta'=> 'exito',
+                'id_actualizado'=>$stmt->insert_id
+            );
+        }else{
+            $respuesta=array(
+                'respuesta' =>'error'
+            );
+        }
+        $stmt->close();
+        $conn->close();
+    }catch(Exception $e){
+        $respuesta=array(
+            'respuesta'=>$e->getMessage()
+        );
+    }
+    die(json_encode($respuesta));
+};
    //***********LOGIIIN***** */
     
    if(isset($_POST['login-admin'])){
-  
     $usuarioPost= $_POST['usuario'];
     $passwordPost= $_POST['password'];
-    try{
-        include_once 'funciones/funciones.php';
-        $stmt= $conn->prepare("SELECT usuario,password,nombre,id_admin FROM admins WHERE usuario=?;");
+    $opciones= array(
+        'cost'=>12
+    );
+   
+    try{  
+        $stmt= $conn->prepare("SELECT usuario,password,nombre,id_admin FROM admins WHERE usuario=?");
     $stmt->bind_param("s", $usuarioPost);
     //ejecuto el stmt
     $stmt->execute();
@@ -63,8 +97,8 @@ if(isset($_POST['agregar-admin'])){
     if($stmt->affected_rows){
         $existe = $stmt->fetch();
         if($existe){
-           
-            if(password_verify($passwordPost, $password)){
+            if(password_verify($passwordPost,$password))
+            {
                 session_start();
                 $_SESSION['usuario']= $usuario;
                 $_SESSION['nombre']= $nombre;
@@ -73,12 +107,15 @@ if(isset($_POST['agregar-admin'])){
                     'usuario'=> $nombre
                 );
                 die(json_encode($respuesta));
-            }else{
+            }
+            else{
                 $respuesta= array(
                     'respuesta'=>'error' 
                 );
             }
-        }else{
+        }
+        else
+        {
             $respuesta= array(
                 'respuesta'=>'error'
             );
@@ -89,5 +126,5 @@ if(isset($_POST['agregar-admin'])){
     }catch(Exception $e){
         echo "Error: " .$e->getMessage();
     }
-    die(json_encode($respuesta));
+   
   }

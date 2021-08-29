@@ -31,7 +31,7 @@ include_once 'template/navegacion.php';
                         <h3 class="box-title">Crear Administrador</h3>
                     </div>
                     <div class="box-body">
-                        <form role="form" name="crear-admin" id="crear-admin" method="post" action="modelo-admin.php">
+                        <form role="form" name="guardar-registro" id="guardar-registro" method="post" action="modelo-admin.php">
                             <div class="box-body">
                                 <div class="form-group">
                                     <label for="usuario">Usuario:</label>
@@ -55,7 +55,7 @@ include_once 'template/navegacion.php';
                             <!-- /.box-body -->
 
                             <div class="box-footer">
-                                <input type="hidden" name="agregar-admin" value="1">
+                                <input type="hidden" name="registro" value="nuevo">
                                 <button type="submit" class="btn btn-primary">Aceptar</button>
                             </div>
                         </form>
