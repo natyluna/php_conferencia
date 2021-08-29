@@ -1,12 +1,12 @@
 
 $(document).ready(function(){
-    
-    $('#crear-admin').on('submit', function(e){
+  
+    $('#guardar-registro').on('submit', function(e){
         e.preventDefault(); //evito q se abra el archivo del action, solo lo cargo
         
         //para obtener los datos
         var datos = $(this).serializeArray();
-        
+      
         //crea el ajax
         $.ajax({
             //lo leo
@@ -18,7 +18,7 @@ $(document).ready(function(){
             dataType:'json',
             //respuesta
             success: function(data){
-                //console.log(data);
+                console.log(data);
                 var resultado= data;
                 if(resultado.respuesta == 'exito'){
                     swal(
@@ -38,7 +38,7 @@ $(document).ready(function(){
     });
     $('#login-admin').on('submit', function(e){
         e.preventDefault(); //evito q se abra el archivo del action, solo lo cargo
-        
+      
         //para obtener los datos
         var datos = $(this).serializeArray();
         
@@ -53,6 +53,24 @@ $(document).ready(function(){
             dataType:'json',
            success: function(data){
                console.log(data);
+               var resultado= data;
+               if(resultado.respuesta == 'exitoso'){
+                   swal(
+                       'Login Correcto',
+                       'Bienvenido/a ' + resultado.usuario+' !! ',
+                       'success'
+                   )
+                   //redirecciono, espera un tiempo antes de ejecutarse
+                   setTimeout(function(){
+                      window.location.href = 'admin-area.php';
+                   }, 2000);
+               }else{
+                   swal(
+                       'Error',
+                       'Usuario o Password Incorrectos',
+                       'error'
+                   )
+               }
            }
             
         })

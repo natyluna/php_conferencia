@@ -15,7 +15,6 @@
        Listado de Administradores
         <small></small>
       </h1>
-     
     </section>
 
     <!-- Main content -->

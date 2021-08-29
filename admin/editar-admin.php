@@ -1,5 +1,5 @@
 <?php
-/* include_once 'funciones/sesiones.php'; */
+include_once 'funciones/sesiones.php';
 include_once 'funciones/funciones.php';
 $id = $_GET['id'];
 //validacion: si no es numerico corta la ejecucion
@@ -39,7 +39,7 @@ include_once 'template/navegacion.php';
 
                         ?>
                         <!-- form start -->
-                        <form role="form" id="guardar-registro" method="post" action="modelo-admin.php">
+                        <form role="form" name="guardar-registro" id="guardar-registro" method="post" action="modelo-admin.php">
                             <div class="box-body">
                                 <div class="form-group">
                                     <label for="usuario">Usuario:</label>
