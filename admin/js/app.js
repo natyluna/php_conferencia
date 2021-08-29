@@ -23,9 +23,9 @@ $(document).ready(function() {
         search: 'Buscar'
       }
     });
-  });
+ 
 
-  $('#crear_registro').attr('disabled', true);//deshabilito el boton hasta q complete bien los datos
+  $('#crear_registro_admin').attr('disabled', true);//deshabilito el boton hasta q complete bien los datos
   //PARA VALIDAR LAS CONTRASEÑAS
   $('input#repetir_password').on('input', function(){
 
@@ -41,4 +41,21 @@ $(document).ready(function() {
         $('input#password').parents('.form-group').addClass('has-error').removeClass('has-success');
         $('#crear_registro').attr('disabled', true);
     }
+
+});
+
+
+    //Date picker
+    $('#fecha').datepicker({
+      autoclose: true
+    });
+     //Timepicker
+  $('.timepicker').timepicker({
+    showInputs: false
   });
+   //Initialize Select2 Elements
+ $('.seleccionar').select2();
+});
+ 
+
+ 

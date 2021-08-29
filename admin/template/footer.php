@@ -28,6 +28,8 @@
 <script src="js/dataTables.bootstrap.min.js"></script>
 <script src="js/app.js"></script>
 <script src="js/login-ajax.js"></script>
-
+<script src="js/bootstrap-datepicker.min.js"></script>
+<script src="js/select2.full.min.js"></script>
+<script src="js/bootstrap-timepicker.min.js"></script>
 </body>
 </html>

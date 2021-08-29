@@ -1,51 +1,45 @@
 <?php
-
  include_once 'funciones/funciones.php';//conecto a la bd
-//PARA COMPROBAR SI ESTA CONECTADA A LA BASE DE DATOS
-/* if($conn->ping()){
-    echo "conectado";
-}else{
-    echo "no conectado";
-}  */
-//SE UTILIZA PARA TODOS LOS ARCHIVOS
-$usuario = $_POST['usuario'];
-$nombre = $_POST['nombre'];
-$password= $_POST['password'];
-$id_registro= $_POST['id_registro'];
+ 
+//creo las variables 
+$titulo= $_POST['titulo_evento'];
+$categoria_id= $_POST['categoria_evento'];
+$invitado_id= $_POST['invitado'];
+//para obtener la fecha
+$fecha= $_POST['fecha_evento'];
+//formatear la fecha
+$fecha_formateada= date('Y-m-d', strtotime($fecha));
+$hora= $_POST['hora_evento'];
+$id_registro = $_POST['id_registro']; 
 /***********NUEEEEVOOO*******/
-if($_POST['registro'] == 'nuevo'){
-   //creo las opciones
-   $opciones= array(
-    'cost'=>12
-    );
-   //para encriptar el password
-   $password_hashed= password_hash($password, PASSWORD_BCRYPT, $opciones);
-
-   try{
-    $stmt= $conn->prepare("INSERT INTO admins (usuario, nombre, password) VALUES (?,?,?)");
-    $stmt->bind_param("sss", $usuario, $nombre, $password_hashed);
-    //ejecuto el stmt
-    $stmt->execute(); 
-    //inserto una rta
-    $id_registro= $stmt->insert_id;
-    if( $id_registro>0){
-        $respuesta= array(
-            'respuesta'=> 'exito',
-            'id_admin'=>$id_registro //regresa la info
-        );
-    }else{
-        $respuesta= array(
-            'respuesta'=> 'error, no se cargo',
-            
+ if($_POST['registro'] == 'nuevo'){
+    
+    try{
+        $stmt = $conn->prepare("INSERT INTO eventos(nombre_evento, fecha_evento, hora_evento, id_cat_evento, id_inv) VALUES (?, ?, ?, ?, ?)");
+        $stmt->bind_param('sssii', $titulo, $fecha_formateada, $hora, $categoria_id, $invitado_id);
+        $stmt->execute();
+       
+    
+        if ($stmt->affected_rows) {
+          
+            $respuesta = array(
+                'respuesta' => 'exito',
+                'id_insertado' => $stmt->insert_id
+            );
+        } else {
+            $respuesta = array(
+                'respuesta' => 'error'
+            );
+        }
+        $stmt->close();
+        $conn->close();
+    }
+    catch(Exception $e){
+        $respuesta=array(
+            'respuesta'=> $e->getMessage()
         );
     }
-    $stmt->close();
-    $conn->close();
-
-   }catch(Exception $e){
-       echo "Error: " .$e->getMessage();
-   }
-   die(json_encode($respuesta));
+  die(json_encode($respuesta));
 }
  
 //***********EDITAR***** */

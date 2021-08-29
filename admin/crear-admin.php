@@ -45,18 +45,18 @@ include_once 'template/navegacion.php';
                                     <label for="password">Contraseña:</label>
                                     <input type="password" name="password" class="form-control" id="password" placeholder="Contraseña para iniciar sesion">
                                 </div>
-                               <!--  <div class="form-group">
+                                <div class="form-group">
                                     <label for="password">Repetir Contraseña:</label>
                                     <input type="password" name="repetir_password" class="form-control" id="repetir_password" placeholder="Contraseña para iniciar sesion">
                                     <span id="resultado_password" class="help-block"></span>
-                                </div> -->
+                                </div>
 
                             </div>
                             <!-- /.box-body -->
 
                             <div class="box-footer">
                                 <input type="hidden" name="registro" value="nuevo">
-                                <button type="submit" class="btn btn-primary">Aceptar</button>
+                                <button type="submit" class="btn btn-primary" id="crear_registro_admin">Aceptar</button>
                             </div>
                         </form>
                     </div>

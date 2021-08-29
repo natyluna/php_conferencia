@@ -6,7 +6,6 @@ $(document).ready(function(){
         
         //para obtener los datos
         var datos = $(this).serializeArray();
-      
         //crea el ajax
         $.ajax({
             //lo leo
@@ -18,7 +17,6 @@ $(document).ready(function(){
             dataType:'json',
             //respuesta
             success: function(data){
-                console.log(data);
                 var resultado= data;
                 if(resultado.respuesta == 'exito'){
                     swal(
@@ -75,15 +73,16 @@ $(document).ready(function(){
             
         })
     });
-/*
-    //AGREGO ELIMINAR UN ADMIN 
-$('.borrar_registro').on('click', function (e) {
+
+    //AGREGO ELIMINAR UN REGISTRO 
+$('.borrar-registro').on('click', function (e) {
     e.preventDefault(); // cancelo la ejecucion
+    
     var id = $(this).attr('data-id');
     var tipo = $(this).attr('data-tipo');
     // card de confirmacionsweat
     swal({
-        title: 'Esta seguro que desea eliminar',
+        title: 'Esta seguro que desea eliminar?',
         Text: "registro eliminado",
         type: 'warning',
         showCancelButton: true,
@@ -96,8 +95,8 @@ $('.borrar_registro').on('click', function (e) {
         $.ajax({
             type: 'post',
             data: {
-                'id': id,
-                'registro': 'eliminar'
+                id: id,
+                registro: 'eliminar'
             },
             url: 'modelo-' + tipo + '.php',
             success: function (data) {
@@ -121,6 +120,6 @@ $('.borrar_registro').on('click', function (e) {
         })
     });
 });
-*/
+
 
 });
