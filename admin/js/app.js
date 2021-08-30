@@ -55,6 +55,8 @@ $(document).ready(function() {
   });
    //Initialize Select2 Elements
  $('.seleccionar').select2();
+
+ $('#icono').iconpicker();
 });
  
 

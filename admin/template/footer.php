@@ -31,5 +31,7 @@
 <script src="js/bootstrap-datepicker.min.js"></script>
 <script src="js/select2.full.min.js"></script>
 <script src="js/bootstrap-timepicker.min.js"></script>
+<script src="js/fontawesome-iconpicker.min.js"></script>
+
 </body>
 </html>

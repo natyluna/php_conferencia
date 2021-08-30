@@ -31,7 +31,7 @@ include_once 'template/navegacion.php';
                         <h3 class="box-title">Crear Evento</h3>
                     </div>
                     <div class="box-body">
-                        <form role="form" name="guardar-registro" id="guardar-registro" method="post" action="modelo-evento.php">
+                        <form role="form" name="guardar-registro" id="guardar-registro" method="" action="modelo-evento.php">
                             <div class="box-body">
                                 <div class="form-group">
                                     <label for="usuario">Titulo Evento:</label>

@@ -100,6 +100,7 @@ $('.borrar-registro').on('click', function (e) {
             },
             url: 'modelo-' + tipo + '.php',
             success: function (data) {
+                console.log(data);
                 var resultado = JSON.parse(data);
                 if(resultado.respuesta == 'exito'){
                     swal(

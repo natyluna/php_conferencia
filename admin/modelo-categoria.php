@@ -1,69 +1,57 @@
 <?php
- include_once 'funciones/funciones.php';//conecto a la bd
- 
-//creo las variables 
-$titulo= $_POST['titulo_evento'];
-$categoria_id= $_POST['categoria_evento'];
-$invitado_id= $_POST['invitado'];
-//para obtener la fecha
-$fecha= $_POST['fecha_evento'];
-//formatear la fecha
-$fecha_formateada= date('Y-m-d', strtotime($fecha));
-$hora= $_POST['hora_evento'];
-$hora_formateada= date('H:i', strtotime($hora));
 
-$id_registro = $_POST['id_registro']; 
+ include_once 'funciones/funciones.php';//conecto a la bd
+
+$nombre_categoria= $_POST['nombre_categoria'];
+$icono= $_POST['icono'];
+$id_registro= $_POST['id_registro'];
 /***********NUEEEEVOOO*******/
- if($_POST['registro'] == 'nuevo'){
-    
-    try{
-        $stmt = $conn->prepare('INSERT INTO eventos(nombre_evento, fecha_evento, hora_evento, id_cat_evento, id_inv, editado= NOW() VALUES (?, ?, ?, ?, ?)');
-        $stmt->bind_param('sssii', $titulo, $fecha_formateada, $hora_formateada, $categoria_id, $invitado_id);
-        $stmt->execute();
-       
-        $id_insertado= $stmt->insert_id;
-        if ($stmt->affected_rows) {
-          
-            $respuesta = array(
-                'respuesta' => 'exito',
-                'id_insertado' => $id_insertado
-            );
-        } else {
-            $respuesta = array(
-                'respuesta' => 'error'
-            );
-        }
-        $stmt->close();
-        $conn->close();
-    }
-    catch(Exception $e){
-        $respuesta=array(
-            'respuesta'=> $e->getMessage()
+if($_POST['registro'] == 'nuevo'){
+
+   try{
+    $stmt= $conn->prepare('INSERT INTO categoria_evento (cat_evento, icono) VALUES (? ,?) ');
+    $stmt->bind_param("ss", $nombre_categoria, $icono);
+    $stmt->execute();
+    $id_insertado= $stmt->insert_id;
+    if($stmt->affected_rows){
+        $respuesta = array(
+            'respuesta'=> 'exito',
+            'id_insertado'=> $id_insertado
+        );
+    }else{
+        $respuesta = array(
+            'respuesta'=> 'error'
+            
         );
     }
-  die(json_encode($respuesta));
+    $stmt->close();
+    $conn->close();
+
+   }catch(Exception $e){
+       echo "Error: " .$e->getMessage();
+   }
+   die(json_encode($respuesta));
 }
  
 //***********EDITAR***** */
   if($_POST['registro']=='actualizar'){
-   
-    try{
-        $stmt= $conn->prepare('UPDATE eventos SET nombre_evento=?, fecha_evento=?, hora_evento=? ,id_cat_evento=?, id_inv=? WHERE evento_id=? ');
-        $stmt-> bind_param('sssiii', $titulo, $fecha_formateada, $hora_formateada,$categoria_id,$invitado_id,$id_registro);
+
+    try {
+
+        $stmt = $conn->prepare('UPDATE categoria_evento SET cat_evento=?, icono=? ,editado=NOW() WHERE id_categoria= ? ');
+        $stmt->bind_param("ssi", $nombre_categoria, $icono, $id_registro);
+
         $stmt->execute();
         if($stmt->affected_rows){
-            $respuesta=array(
+            $respuesta= array(
                 'respuesta'=> 'exito',
-                'id_actualizado' => $id_registro
-
+                'id_actualizado'=>$id_registro
             );
         }else{
             $respuesta=array(
-                'respuesta'=> 'error'
+                'respuesta' =>'error'
             );
         }
-
-
         $stmt->close();
         $conn->close();
     }catch(Exception $e){
@@ -76,11 +64,10 @@ $id_registro = $_POST['id_registro'];
 
 //*******ELIMINAR******* */
 if($_POST['registro']=='eliminar'){
-
     $id_borrar= $_POST['id'];
 
     try{
-        $stmt= $conn->prepare('DELETE FROM eventos WHERE evento_id= ?');
+        $stmt= $conn->prepare('DELETE FROM categoria_evento WHERE id_categoria= ?');
         $stmt-> bind_param('i', $id_borrar);
         $stmt->execute();
         if($stmt->affected_rows){
