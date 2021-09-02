@@ -34,6 +34,46 @@ $(document).ready(function(){
             }
         })
     });
+    /*****GUARDAR ARCHIVOS CON IMAGNEES *****/
+    $('#guardar-registro-archivo').on('submit', function(e){
+        e.preventDefault(); //evito q se abra el archivo del action, solo lo cargo
+        
+        //para obtener los datos
+        var datos =new FormData(this);
+        //crea el ajax
+        $.ajax({
+            //lo leo
+            type: $(this).attr('method'),
+            //datos a enviar
+            data: datos,
+            //a donde enviar
+            url:$(this).attr('action'),
+            dataType:'json',
+            //para las imagenes
+            contentType:false,
+            processData: false,
+            async: true,
+            cache: false,
+            //respuesta
+            success: function(data){
+                var resultado= data;
+                if(resultado.respuesta == 'exito'){
+                    swal(
+                        'Correcto',
+                        'Se guardo correctamente',
+                        'success'
+                    )
+                }else{
+                    swal(
+                        'Error',
+                        'hubo un error, no se pudo cargar',
+                        'error'
+                    )
+                }
+            }
+        })
+    });
+    /***LOGIIN ******/
     $('#login-admin').on('submit', function(e){
         e.preventDefault(); //evito q se abra el archivo del action, solo lo cargo
       

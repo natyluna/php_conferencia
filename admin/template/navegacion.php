@@ -62,8 +62,8 @@
             <span>Invitados</span>      
           </a>
           <ul class="treeview-menu">
-            <li><a href="#"><i class="fa fa-list-ul"></i>Ver Todos</a></li>
-            <li><a href="#"><i class="fa fa-plus-circle"></i> Agregar</a></li>
+            <li><a href="lista-invitados.php"><i class="fa fa-list-ul"></i>Ver Todos</a></li>
+            <li><a href="crear-invitados.php"><i class="fa fa-plus-circle"></i> Agregar</a></li>
           </ul>
         </li>
 
@@ -73,8 +73,8 @@
             <span>Registrados</span>      
           </a>
           <ul class="treeview-menu">
-            <li><a href="#"><i class="fa fa-list-ul"></i>Ver Todos</a></li>
-            <li><a href="#"><i class="fa fa-plus-circle"></i> Agregar</a></li>
+            <li><a href="lista-registrados.php"><i class="fa fa-list-ul"></i>Ver Todos</a></li>
+            <li><a href="crear-registro.php"><i class="fa fa-plus-circle"></i> Agregar</a></li>
           </ul>
         </li>
 

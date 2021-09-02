@@ -33,5 +33,7 @@
 <script src="js/bootstrap-timepicker.min.js"></script>
 <script src="js/fontawesome-iconpicker.min.js"></script>
 
+<script src="../js/cotizador.js"></script>
+
 </body>
 </html>
