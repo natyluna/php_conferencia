@@ -117,7 +117,7 @@ $(document).ready(function(){
     //AGREGO ELIMINAR UN REGISTRO 
 $('.borrar-registro').on('click', function (e) {
     e.preventDefault(); // cancelo la ejecucion
-    
+    console.log("entre");
     var id = $(this).attr('data-id');
     var tipo = $(this).attr('data-tipo');
     // card de confirmacionsweat

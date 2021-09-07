@@ -32,8 +32,12 @@
 <script src="js/select2.full.min.js"></script>
 <script src="js/bootstrap-timepicker.min.js"></script>
 <script src="js/fontawesome-iconpicker.min.js"></script>
-
+<script src="js/icheck.min.js"></script>
 <script src="../js/cotizador.js"></script>
+<!-- Morris.js charts -->
+<script src="js/raphael.min.js"></script>
+<script src="js/morris.min.js"></script>
+
 
 </body>
 </html>

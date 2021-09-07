@@ -57,6 +57,26 @@ $(document).ready(function() {
  $('.seleccionar').select2();
 
  $('#icono').iconpicker();
+ $.getJSON('servicio-registrados.php', function(data){
+    //EJECUTA EL GRAFICO DE LINE CHART
+  var line = new Morris.Line({
+    element: 'grafica-registros',
+    resize: true,
+    data: data,
+    xkey: 'fecha',
+    ykeys: ['cantidad'],
+    labels: ['Item 1'],
+    lineColors: ['#3c8dbc'],
+    hideHover: 'auto'
+  });
+ });
+  
+
+ //CHECKBOX DE color
+ $('input[type="checkbox"].minimal, input[type="radio"].minimal').iCheck({
+  checkboxClass: 'icheckbox_minimal-blue',
+  radioClass   : 'iradio_minimal-blue'
+})
 });
  
 

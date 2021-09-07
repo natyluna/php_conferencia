@@ -109,21 +109,21 @@
                                     'nombre_invitado' => $eventos['nombre_invitado'],
                                     'apellido_invitado' => $eventos['apellido_invitado']
                                 );
-                                $eventos_dias[$dia_semana]['eventos'][$categoria][] = $dia;
+                                $eventos_dias[$dia_semana]['eventos'][$categoria][] = $dia;//creo un arreglo
                             }
                 
                         
                         ?>
-                     
+                           <!--  EVEEENTOS -->
                         <?php foreach($eventos_dias as $dia => $eventos) {?>
 
                            <div id="<?php echo str_replace('á', 'a', $dia); ?>" class="contenido-dia clearfix">
                                <h4><?php echo $dia; ?></h4>
-                               
+                               <!-- accedo a los eventos -->
                                <?php foreach($eventos['eventos'] as $tipo => $evento_dia): ?>  
                                    <div>
                                          <p><?php echo $tipo; ?></p>
-                                       
+                                          <!-- accedo a los talleres -->
                                          <?php foreach($evento_dia as $evento) { ?>
                                            <label>
                                                 <input type="checkbox" name="registro[]" id="<?php echo $evento['id']; ?>" value="<?php echo $evento['id']; ?>">
