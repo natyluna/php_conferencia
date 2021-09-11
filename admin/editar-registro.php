@@ -294,3 +294,4 @@ $conn->close();
         include_once 'templates/footer-scripts.php';
         ?>
         <script src="../js/cotizar.js"></script>
+       

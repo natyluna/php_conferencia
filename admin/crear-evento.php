@@ -31,10 +31,10 @@ include_once 'template/navegacion.php';
                         <h3 class="box-title">Crear Evento</h3>
                     </div>
                     <div class="box-body">
-                        <form role="form" name="guardar-registro" id="guardar-registro" method="" action="modelo-evento.php">
+                        <form role="form" name="guardar-registro" id="guardar-registro" method="post" action="modelo-evento.php">
                             <div class="box-body">
                                 <div class="form-group">
-                                    <label for="usuario">Titulo Evento:</label>
+                                    <label for="nombre_evento">Titulo Evento:</label>
                                     <input type="text" name="titulo_evento" class="form-control" id="titulo_evento" placeholder="Titulo Evento">
                                 </div>
 
@@ -89,7 +89,7 @@ include_once 'template/navegacion.php';
                                 </div>
                                 <div class="form-group">
                                     <label for="nombre">Invitado o Ponente:</label>
-                                    <select name="invitado" class="form-control seleccionar">
+                                    <select name="invitado_evento" class="form-control seleccionar">
                                         <option value="0">- Seleccionar -</option>
                                         <?php
                                         try {
@@ -108,8 +108,8 @@ include_once 'template/navegacion.php';
                                     </select>
                                 </div>
 
-                            </div>
-                            <!-- /.box-body -->
+                            </div><!-- /.box-body -->
+                            
 
                             <div class="box-footer">
                                 <input type="hidden" name="registro" value="nuevo">
@@ -119,11 +119,14 @@ include_once 'template/navegacion.php';
                     </div>
 
                 </div>
+            </section>
         </div>
-    </div>
+    </div> <!-- cierra row -->
+</div>
     <!-- /.content-wrapper -->
 
     <?php
-    include_once 'template/footer.php';
-
+    include_once './template/footer.php';
+  
     ?>
+    

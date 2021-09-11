@@ -57,6 +57,7 @@ $(document).ready(function() {
  $('.seleccionar').select2();
 
  $('#icono').iconpicker();
+ 
  $.getJSON('servicio-registrados.php', function(data){
     //EJECUTA EL GRAFICO DE LINE CHART
   var line = new Morris.Line({

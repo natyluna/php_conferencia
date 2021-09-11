@@ -4,7 +4,7 @@
 //creo las variables 
 $titulo= $_POST['titulo_evento'];
 $categoria_id= $_POST['categoria_evento'];
-$invitado_id= $_POST['invitado'];
+$invitado_id= $_POST['invitado_evento'];
 //para obtener la fecha
 $fecha= $_POST['fecha_evento'];
 //formatear la fecha
@@ -17,7 +17,8 @@ $id_registro = $_POST['id_registro'];
  if($_POST['registro'] == 'nuevo'){
     
     try{
-        $stmt = $conn->prepare('INSERT INTO eventos(nombre_evento, fecha_evento, hora_evento, id_cat_evento, id_inv, editado= NOW() VALUES (?, ?, ?, ?, ?)');
+        $stmt = $conn->prepare("INSERT INTO eventos (nombre_evento, fecha_evento, hora_evento, id_cat_evento, id_inv, editado) VALUES (?,?,?,?, ?, NOW() )");
+       
         $stmt->bind_param('sssii', $titulo, $fecha_formateada, $hora_formateada, $categoria_id, $invitado_id);
         $stmt->execute();
        
@@ -35,6 +36,8 @@ $id_registro = $_POST['id_registro'];
         }
         $stmt->close();
         $conn->close();
+        
+      /*   throw new Exception('Uncaught Exception'); */
     }
     catch(Exception $e){
         $respuesta=array(
@@ -42,6 +45,7 @@ $id_registro = $_POST['id_registro'];
         );
     }
   die(json_encode($respuesta));
+  
 }
  
 //***********EDITAR***** */

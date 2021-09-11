@@ -35,7 +35,7 @@ include_once 'template/navegacion.php';
               <div class="box-body">
 
                 <a href="crear-registro.php" class="btn btn-success">Añadir Nuevo</a>
-                <table id="registros" class="table table-bordered table-hover">
+                <table id="registros" class="table table-bordered table-striped">
                   <thead>
                     <tr>
                       <th>Nombre</th>
@@ -54,8 +54,10 @@ include_once 'template/navegacion.php';
                     try {
                       $sql = "SELECT * FROM registrados";
                       $resultado = $conn->query($sql);
+
                     } catch (Exception $e) {
                       $error = $e->getMessage();
+                      echo $error;
                     }
                     while ($registrados = $resultado->fetch_assoc()) { ?>
                       <tr>
@@ -94,7 +96,7 @@ include_once 'template/navegacion.php';
                         </td>
                         <td>
                           <?php
-                          $eventos_resultado = $registrados['talleres_registrados'];
+                          $eventos_resultado = $registrado['talleres_registrados'];//saque la S a registrado
                           $talleres = json_decode($eventos_resultado, true);
 
                           $talleres = implode("', '", $talleres['eventos']);
@@ -118,9 +120,10 @@ include_once 'template/navegacion.php';
                           <a href="editar-registro.php?id=<?php echo $registrados['ID_Registrado']; ?>" class="btn bg-orange btn-flat margin">
                             <i class="fa fa-pencil"></i>
                           </a>
-                          <a data-id="<?php echo $registrados['ID_Registrado']; ?>" data-tipo="categoria" class="btn btn-danger btn-flat margin borrar-registro">
+                          <a href="#" data-id="<?php echo $registrados['ID_Registrado']; ?>" data-tipo="registrado" class="btn btn-danger btn-flat margin borrar-registro">
                             <i class="fa fa-trash"></i>
                           </a>
+                          
                         </td>
                       </tr>
                     <?php } ?>
@@ -156,8 +159,10 @@ include_once 'template/navegacion.php';
     </div>
     <?php
     $conn->close();
-    include_once 'templates/footer.php';
+    include_once 'template/footer.php';
     include_once 'templates/footer-scripts.php';
 
 
     ?>
+     <script type="module" src="../js/cotizar.js"></script>
+    

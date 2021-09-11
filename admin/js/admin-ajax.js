@@ -1,9 +1,8 @@
-
 $(document).ready(function(){
   
     $('#guardar-registro').on('submit', function(e){
-        e.preventDefault(); //evito q se abra el archivo del action, solo lo cargo
         
+        e.preventDefault(); //evito q se abra el archivo del action, solo lo cargo
         //para obtener los datos
         var datos = $(this).serializeArray();
         //crea el ajax
