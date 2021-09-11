@@ -1,4 +1,4 @@
-/*$(document).ready(function(){
+/* $(document).ready(function(){
 
     $('#login-admin').on('submit', function(e){
         e.preventDefault(); //evito q se abra el archivo, solo lo cargo
@@ -38,4 +38,4 @@
             }
         })
     });
-});*/
+}); */

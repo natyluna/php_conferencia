@@ -788,7 +788,7 @@ p.copyright {
 }
 
 /*** INTERNAS **/
-/* Conferencia **/
+/* **Conferencia ***/
 .navegacion-principal .activo {
   border-bottom: 2px solid #fe4918;
 }
@@ -796,7 +796,7 @@ div.galeria a{
   display: inline-block;
   margin-bottom: 5px;
 }
-/* Registro **/
+/*** Registro ***/
 form.registro h3 {
   text-align: center;
   text-transform: uppercase;
@@ -871,7 +871,7 @@ div.paquetes .tabla-precio input {
     font-size: 12px;
 }
 
-/* Resumen Registro */
+/**** Resumen Registro ****/
 
 div.resumen p {
   font-size: 1.2em;
@@ -919,7 +919,7 @@ input[disabled].button {
   display: none;
 }
 
-/** Calendario **/
+/**** Calendario ****/
 div.calendario h3 {
   background-color: #fe4918;
   clear: both;
@@ -1234,4 +1234,7 @@ table.registrados tr:nth-child(4n-1) {
     h3 {
         page-break-after: avoid;
     }
+
+    /*ESTILOS 404 NOT FOUND*/
+    
 }

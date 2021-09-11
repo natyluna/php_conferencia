@@ -1,5 +1,5 @@
 <?php
-   /*  include_once 'funciones/sesiones.php'; *///SIEMPRE PRIMERO // agrego en toda pag q quiera tener segura
+    include_once 'funciones/sesiones.php'; ///SIEMPRE PRIMERO // agrego en toda pag q quiera tener segura
     include_once 'funciones/funciones.php';
     include_once 'template/header.php';
     include_once 'template/barra.php';

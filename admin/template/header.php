@@ -16,11 +16,18 @@
   <link rel="stylesheet" href="css/AdminLTE.min.css">
   <!--tabla de mostrar todos-->
   <link rel="stylesheet" href="css/dataTables.bootstrap.min.css">
+  <link rel="stylesheet" href="css/bootstrap-datepicker.min.css">
+  <link rel="stylesheet" href="css/select2.min.css">
+  <link rel="stylesheet" href="css/bootstrap-timepicker.min.css">
+  
   <!-- AdminLTE Skins. Choose a skin from the css/skins
        folder instead of downloading all of them to reduce the load. -->
   <link rel="stylesheet" href="css/skins/_all-skins.min.css">
   <link rel="stylesheet" href="css/admin.css">
   <link rel="stylesheet" href="css/sweetalert2.min.css">
+  <link rel="stylesheet" href="css/fontawesome-iconpicker.min.css">
+  <link rel="stylesheet" href="css/icheck.css">
+  <link rel="stylesheet" href="css/morris.css">
 
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->

@@ -1,22 +1,14 @@
 <footer class="site-footer">
     <div class="contenedor clearfix">
-          <div class="footer-informacion">
+          <div class="col-md-4 footer-informacion">
               <h3>Sobre <span>gdlwebcamp</span></h3>
               <p>Praesent rutrum efficitur pharetra. Vivamus scelerisque pretium velit, id tempor turpis pulvinar et. Ut bibendum finibus massa non molestie. Curabitur urna metus, placerat gravida lacus ut, lacinia congue orci. Maecenas luctus mi at ex blandit vehicula. Morbi porttitor tempus euismod.</p>
           </div>
-          <div class="ultimos-tweets">
+          <div class="col-md-4 ultimos-tweets">
                 <h3>Últimos <span>tweets</span></h3>
-                <ul>
-                    <li>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa veniam nam recusandae animi id amet temporibus dolor modi esse laboriosam sit voluptate nostrum quae, alias doloribus excepturi delectus vel. Dolorem?
-                    </li>
-                    <li>
-                        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Consectetur, molestiae! Qui explicabo sit cumque quaerat, repellat deleniti animi doloremque numquam! Ex commodi repudiandae neque, eveniet facere obcaecati ratione. Laborum, possimus?
-                    </li>
-            
-                </ul>
+                <a class="twitter-timeline" data-height="400" data-dnt="true" href="https://twitter.com/asaditojs?ref_src=twsrc%5Etfw">Tweets by asaditojs</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
             </div>
-          <div class="menu">
+          <div class="col-md-4 menu">
               <h3>Redes <span>sociales</span></h3>
               <nav class="redes-sociales">
                   <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>

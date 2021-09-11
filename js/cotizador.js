@@ -1,15 +1,14 @@
 
 (function() {
     "use strict";
-    
-    console.log('aqui');
    
+    var regalo = document.getElementById('regalo');
     document.addEventListener('DOMContentLoaded', function(){
       
   if(document.getElementById('calcular')) {
 
         
-        var regalo = document.getElementById('regalo');
+       
     
         // Campos Datos usuario
         var nombre = document.getElementById('nombre');
@@ -47,9 +46,6 @@
 
 
         
-  
-          
-        
         
         calcular.addEventListener('click', calcularMontos);
         
@@ -62,6 +58,14 @@
         email.addEventListener('blur', validarCampos);
         email.addEventListener('blur', validarMail);
         
+        var formulario_editar = document.getElementsByClassName('editar-registrado');
+        if(formulario_editar.length>0){
+          if(pase_dia.value || pase_dosdias.value || pase_completo.value){
+            mostrarDias();
+          }
+        }
+        
+
         function validarCampos() {
           if(this.value == '') {
             errorDiv.style.display= 'block';
@@ -138,23 +142,22 @@
               boletos2Dias = parseInt(pase_dosdias.value, 10)|| 0,
               boletoCompleto = parseInt(pase_completo.value, 10)|| 0;
               
-              console.log(boletoCompleto);
               
               var diasElegidos = [];
     
               if(boletosDia > 0){
-                diasElegidos.push('viernes');
-                console.log(diasElegidos);
+                diasElegidos.push('Friday');
+               
               } 
               if(boletos2Dias>0) {
-                diasElegidos.push('viernes','sabado');
-                console.log(diasElegidos);
+                diasElegidos.push('Friday','Saturday');
+               
               } 
               if(boletoCompleto>0) {
-                diasElegidos.push('viernes', 'sabado', 'domingo');
-                console.log(diasElegidos);
+                diasElegidos.push('Friday', 'Saturday', 'Sunday');
+               
               } 
-              console.log(diasElegidos.length);
+              
                             
               // muestra los seleccionados
               for(var i = 0; i < diasElegidos.length; i++) {

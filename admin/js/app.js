@@ -23,9 +23,9 @@ $(document).ready(function() {
         search: 'Buscar'
       }
     });
-  });
+ 
 
-  $('#crear_registro').attr('disabled', true);//deshabilito el boton hasta q complete bien los datos
+  $('#crear_registro_admin').attr('disabled', true);//deshabilito el boton hasta q complete bien los datos
   //PARA VALIDAR LAS CONTRASEÑAS
   $('input#repetir_password').on('input', function(){
 
@@ -41,4 +41,44 @@ $(document).ready(function() {
         $('input#password').parents('.form-group').addClass('has-error').removeClass('has-success');
         $('#crear_registro').attr('disabled', true);
     }
+
+});
+
+
+    //Date picker
+    $('#fecha').datepicker({
+      autoclose: true
+    });
+     //Timepicker
+  $('.timepicker').timepicker({
+    showInputs: false
   });
+   //Initialize Select2 Elements
+ $('.seleccionar').select2();
+
+ $('#icono').iconpicker();
+ 
+ $.getJSON('servicio-registrados.php', function(data){
+    //EJECUTA EL GRAFICO DE LINE CHART
+  var line = new Morris.Line({
+    element: 'grafica-registros',
+    resize: true,
+    data: data,
+    xkey: 'fecha',
+    ykeys: ['cantidad'],
+    labels: ['Item 1'],
+    lineColors: ['#3c8dbc'],
+    hideHover: 'auto'
+  });
+ });
+  
+
+ //CHECKBOX DE color
+ $('input[type="checkbox"].minimal, input[type="radio"].minimal').iCheck({
+  checkboxClass: 'icheckbox_minimal-blue',
+  radioClass   : 'iradio_minimal-blue'
+})
+});
+ 
+
+ 
