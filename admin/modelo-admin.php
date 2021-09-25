@@ -22,7 +22,7 @@ if($_POST['registro'] == 'nuevo'){
    $password_hashed= password_hash($password, PASSWORD_BCRYPT, $opciones);
 
    try{
-    $stmt= $conn->prepare("INSERT INTO admins (usuario, nombre, password) VALUES (?,?,?)");
+    $stmt= $conn->prepare("INSERT INTO admins (usuario, nombre, password, editado, nivel) VALUES (?,?,?, NOW(), 0)");
     $stmt->bind_param("sss", $usuario, $nombre, $password_hashed);
     //ejecuto el stmt
     $stmt->execute(); 

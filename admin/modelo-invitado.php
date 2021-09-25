@@ -25,7 +25,7 @@ if($_POST['registro'] == 'nuevo'){
 
     //funcion para mover archivos
     if(move_uploaded_file($_FILES['archivo_imagen']['tmp_name'], $directorio . $_FILES['archivo_imagen']['name'])){
-        //acedo a la variable
+        //accedo a la variable
         $imagen_url= $_FILES['archivo_imagen']['name'];
         $imagen_resultado= "Se subio correctamente";
     }

@@ -34,12 +34,12 @@ $(document).ready(function() {
         $('#resultado_password').text('la clave es correcta');
         $('#resultado_password').parents('.form-group').addClass('has-success').removeClass('has-error');
         $('input#password').parents('.form-group').addClass('has-success').removeClass('has-error');
-        $('#crear_registro').attr('disabled', false); //habilito el btn si las claves coinciden
+        $('#crear_registro_admin').attr('disabled', false); //habilito el btn si las claves coinciden
     }else{
         $('#resultado_password').text('Las claves no coinciden');
         $('#resultado_password').parents('.form-group').addClass('has-error').removeClass('has-success');
         $('input#password').parents('.form-group').addClass('has-error').removeClass('has-success');
-        $('#crear_registro').attr('disabled', true);
+        $('#crear_registro_admin').attr('disabled', true);
     }
 
 });
