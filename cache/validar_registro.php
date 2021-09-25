@@ -1,3 +1,87 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="apple-touch-icon" href="apple-touch-icon.png">
+        <!-- Place favicon.ico in the root directory -->
+
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.3/normalize.min.css" integrity="sha512-Ojqt7YpXqYM6//AdMhErV3ot38rYgGF5QLJEwx7zhesjL9VqfhWiRz/dWK22hsn96RNz0CLl85+pg1P0BmfgVQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha512-SfTiTlX6kk+qitfevl/7LibUOeJWlt9rbyDn92a1DqWOw9vWG2MFoays0sgObmWazO5BQPiFucnnEAjpAB+/Sw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link rel="stylesheet" href="css/leaflet.css">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans|Oswald|PT+Sans" rel="stylesheet">
+
+        
+
+        <link rel="stylesheet" href="css/main.css">
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js" integrity="sha512-3n19xznO0ubPpSwYCRRBgHh63DrV+bdZfHK52b1esvId4GsfwStQNPJFjeQos2h3JwCmZl0/LgLxSKMAI55hgw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    </head>
+    <body class="validar_registro">
+        <!--[if lt IE 8]>
+            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+
+
+
+        <header class="site-header">
+            <div class="hero">
+                <div class="contenido-header">
+                    <nav class="redes-sociales">
+                        <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+                        <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+                        <a href="#"><i class="fa fa-youtube-play" aria-hidden="true"></i></a>
+                        <a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+                        <a href="/gdlwebcampHTML/admin/login.php"><i class="fa fa-user" aria-hidden="true"></i></a>
+                    </nav>
+                    <div class="informacion-evento">
+                        <div class="clearfix">
+                            <p class="fecha"><i class="fa fa-calendar" aria-hidden="true"></i> 10-12 Dic</p>
+                            <p class="ciudad"><i class="fa fa-map-marker" aria-hidden="true"></i>Catamarca-ARG</p>
+                        </div>
+
+                        <h1 class="nombre-sitio">GdlWebCamp</h1>
+                        <p class="slogan">La mejor conferencia de <span>diseño web</span></p>
+                    </div> <!--.informacion-evento-->
+                </div>
+            </div><!--.hero-->
+        </header>
+
+        <div class="barra">
+            <div class="contenedor clearfix">
+                <div class="logo">
+                    <a href="index.php">
+                        <img src="img/logo.svg" alt="logo gdlwebcamp">
+                    </a>
+                </div>
+
+                <div class="menu-movil">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+
+                <nav class="navegacion-principal clearfix">
+                    <a href="conferencia.php">Conferencia</a>
+                    <a href="calendario.php">Calendario</a>
+                    <a href="invitados.php">Invitados</a>
+                    <a href="registro.php">Reservaciones</a>
+                </nav>
+            </div><!--.contenedor-->
+        </div> <!--.barra-->
+
+<section class="seccion contenedor">
+<h2>Resumen Registro</h2>
+
+
+</section>
+
+
+
 <footer class="site-footer">
     <div class="contenedor clearfix">
           <div class="col-md-4 footer-informacion">
@@ -82,22 +166,4 @@
 
 <script id="mcjs">!function(c,h,i,m,p){m=c.createElement(h),p=c.getElementsByTagName(h)[0],m.async=1,m.src=i,p.parentNode.insertBefore(m,p)}(document,"script","https://chimpstatic.com/mcjs-connected/js/users/17afe45fa93b71b3b533c92e8/ac29ec82b0799bfd19bd02326.js");</script>
 
-  <?php 
-    $fp= fopen($archivoCache, 'w');
-    fwrite($fp, ob_get_contents());
-    fclose($fp);
-    ob_end_flush();
-
-   /*  $archivo = basename($_SERVER['PHP_SELF']);
-    $pagina = str_replace(".php", "", $archivo);
-    if($pagina == 'invitados' || $pagina == 'index'){
-      echo '<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.colorbox/1.6.4/jquery.colorbox-min.js" integrity="sha512-DAVSi/Ovew9ZRpBgHs6hJ+EMdj1fVKE+csL7mdf9v7tMbzM1i4c/jAvHE8AhcKYazlFl7M8guWuO3lDNzIA48A==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>';
-      echo '<script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/jquery.waypoints.min.js" integrity="sha512-CEiA+78TpP9KAIPzqBvxUv8hy41jyI3f2uHi7DGp/Y/Ka973qgSdybNegWFciqh6GrN2UePx2KkflnQUbUhNIA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>';
-      echo '<script src="js/leaflet.js"></script>
-      ';
-    } else if($pagina == 'conferencia') {
-      echo '<script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.8.2/js/lightbox.min.js" integrity="sha512-2eijldKanOxzK54tvbFXDe51IxCAjOyYdJsb+XIcKFyLNm6TCgkn9UuX5phDdgRAknmhkKtOTDnvdJaznQ6Mjg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>';
-    }         */
-?>
-</body>
-</html>
+  
